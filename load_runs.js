@@ -38,6 +38,9 @@ for(x=0; x < length(data); x++ ) {
 
 console.log(data['dist_in_mi'].slice(0,5))
 
+
+var svg = d3.select('#Viz_area')
+
 /*var d = data['distance'].slice(0,5);
 var dt = data['']
    */

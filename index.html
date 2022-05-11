@@ -3,7 +3,7 @@
 
 
 <head>
-    <script defer src="https://d3js.org/d3.v6.min.js" charset="utf-8"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="styles.css"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -15,8 +15,30 @@
     <h1> Erin Corcoran personal running project </h1>
     <h2> My most recent 5 runs: </h2>
     <div class="five-runs">
+        <svg id="Viz_area" height=200 width=450></svg>
 
     </div>
 </body>
+
+<script>
+    // Select the svg area
+    var svg = d3.select("#Viz_area")
+    
+    // Create a scale: transform value in pixel
+    var x = d3.scaleLinear()
+        .domain([0, 100])         // This is the min and the max of the data: 0 to 100 if percentages
+        .range([0, 400]);       // This is the corresponding value I want in Pixel
+    
+    // Show the axis that corresponds to this scale
+    svg.call(d3.axisBottom(x));
+    
+    // Add 3 dots for 0, 50 and 100%
+    svg.append("circle")
+      .attr("cx", x(10)).attr("cy", 100).attr("r", 40).style("fill", "blue");
+    svg.append("circle")
+      .attr("cx", x(50)).attr("cy", 100).attr("r", 40).style("fill", "pink");
+    svg.append("circle")
+      .attr("cx", x(100)).attr("cy", 100).attr("r", 40).style("fill", "orange");
+    </script>
 
 </html>
