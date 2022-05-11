@@ -11,7 +11,7 @@ fetch("my_runs_20220511.json")
     runs = data;
 }) */
 
-d3.csv('my_runs_20220511.csv', d3.autoType).then( data =>{
+/*d3.csv('my_runs_20220511.csv', d3.autoType).then( data =>{
     console.log(data)
 })
 
@@ -26,3 +26,11 @@ fetch("my_runs_20220511.json")
     runs = data;
     print(runs);
 })*/
+
+fetch("my_runs_20220511.json")
+  .then(response => response.json())
+  .then(data => {
+    attractions = data;
+    console.log("my_runs_20220511", attractions);}
+);
+   
