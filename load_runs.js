@@ -1,4 +1,6 @@
 const margin = ({top: 20, right: 35, bottom: 20, left: 40})
+const width = 600;
+const height = 450;
 
 fetch("my_runs_20220511.json")
   .then(response => response.json())
@@ -21,9 +23,35 @@ d3.csv('my_runs_20220511.csv', d3.autoType).then( data => {
 
     //console.log(data)
     let dist = data.map(d => d.distance)
+    let five_dist = dist.slice(0,5)
     console.log(dist)
     let dt = data.map(d => d.start_date)
+    let five_dt = dt.slice(0,5)
     console.log(dt)
+
+    const svg = d3.select('.chart').append('svg')
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+    // CREATE SCALES
+    const xScale = d3.scaleTime()
+        .domain(d3.extent(five_dt)).nice()
+        .range([0, width])
+
+    const yScale = d3.scaleLinear()
+        .domain(d3.extent(five_dist)).nice()
+        .range([height, 0])
+
+    const xAxis = d3.axisBottom()
+        .scale(xScale)
+        .ticks(5)
+
+    const yAxis = d3.axisLeft()
+        .scale(yScale)
+        .ticks(5)
+
 })
 
 
