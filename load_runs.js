@@ -1,28 +1,4 @@
-
-/*const jsonData= require('my_runs_20220511.json'); 
-console.log(jsonData); */
-/*let runs;
-
-fetch("my_runs_20220511.json")
-.then(response => {
-   return response.json();
-})
-.then(data => {
-    runs = data;
-}) */
-
-
-/*
-var runs = JSON.parse(my_runs_20220501);
-window.print(runs);
-
-document.getElementById('data').textContent = JSON.stringify(runs);
-fetch("my_runs_20220511.json")
-.then(response => response.json())
-.then(data => {
-    runs = data;
-    print(runs);
-})*/
+const margin = ({top: 20, right: 35, bottom: 20, left: 40})
 
 fetch("my_runs_20220511.json")
   .then(response => response.json())
@@ -36,7 +12,16 @@ for(x=0; x < length(data); x++ ) {
     data['dist_in_mi'][x] = dist_in_mi;
  }
 
-console.log(data['dist_in_mi'].slice(0,5))
+console.log("dist_in_mi ",data['dist_in_mi'].slice(0,5))
+
+d3.csv('my_runs_20220511.csv', d3.autoType).then( data => {
+
+    //console.log(data)
+    let dist = data.map(d => d.distance)
+    console.log(dist)
+    let dt = data.map(d => d.start_date)
+    console.log(dt)
+})
 
 
 var svg = d3.select('#Viz_area')
