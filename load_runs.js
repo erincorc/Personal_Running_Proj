@@ -11,9 +11,6 @@ fetch("my_runs_20220511.json")
     runs = data;
 }) */
 
-/*d3.csv('my_runs_20220511.csv', d3.autoType).then( data =>{
-    console.log(data)
-})
 
 /*
 var runs = JSON.parse(my_runs_20220501);
