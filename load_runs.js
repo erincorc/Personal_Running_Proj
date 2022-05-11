@@ -29,5 +29,15 @@ fetch("my_runs_20220511.json")
   .then(data => {
     attractions = data;
     console.log("my_runs_20220511", attractions);}
-);
-   
+)
+
+for(x=0; x < length(data); x++ ) {
+    var dist_in_mi = data['distance'][x] / 1609;
+    data['dist_in_mi'][x] = dist_in_mi;
+ }
+
+console.log(data['dist_in_mi'].slice(0,5))
+
+/*var d = data['distance'].slice(0,5);
+var dt = data['']
+   */
