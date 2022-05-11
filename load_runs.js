@@ -24,10 +24,12 @@ d3.csv('my_runs_20220511.csv', d3.autoType).then( data => {
     //console.log(data)
     let dist = data.map(d => d.distance)
     let five_dist = dist.slice(0,5)
-    console.log(dist)
+   // console.log(dist)
+    console.log('short dist ', five_dist);
     let dt = data.map(d => d.start_date)
     let five_dt = dt.slice(0,5)
-    console.log(dt)
+    console.log('short dt ', five_dt);
+   // console.log(dt)
 
     const svg = d3.select('.chart').append('svg')
         .attr("width", width + margin.left + margin.right)
