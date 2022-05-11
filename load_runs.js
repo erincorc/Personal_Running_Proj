@@ -1,13 +1,19 @@
 
 /*const jsonData= require('my_runs_20220511.json'); 
 console.log(jsonData); */
+/*let runs;
 
 fetch("my_runs_20220511.json")
 .then(response => {
    return response.json();
 })
-.then(jsondata => console.log(jsondata));
+.then(data => {
+    runs = data;
+}) */
 
+d3.csv('my_runs_20220511.csv', d3.autoType).then( data =>{
+    console.log(data)
+})
 
 /*
 var runs = JSON.parse(my_runs_20220501);
