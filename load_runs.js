@@ -1,7 +1,7 @@
 const margin = ({top: 20, right: 35, bottom: 20, left: 40})
 const width = 600;
 const height = 450;
-
+/*
 fetch("my_runs_20220511.json")
   .then(response => response.json())
   .then(data => {
@@ -17,9 +17,9 @@ fetch("my_runs_20220511.json")
 
 }
 )
+*/
 
-
-d3.csv('my_runs_20220511.csv', d3.autoType).then( data => {
+d3.csv('my_runs_20220516.csv', d3.autoType).then( data => {
 
     //console.log(data)
     let dist = data.map(d => d.dist_in_mi)
