@@ -8,7 +8,7 @@ fetch("my_runs_20220511.json")
     runs = data;
     console.log("my_runs_20220511", runs);
 
-    for(x=0; x < length(data); x++ ) {
+    for(x=0; x < data.length; x++ ) {
         var dist_in_mi = data['distance'][x] / 1609;
         data['dist_in_mi'][x] = dist_in_mi;
      };
