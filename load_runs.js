@@ -22,7 +22,7 @@ fetch("my_runs_20220511.json")
 d3.csv('my_runs_20220511.csv', d3.autoType).then( data => {
 
     //console.log(data)
-    let dist = data.map(d => d.distance)
+    let dist = data.map(d => d.dist_in_mi)
     let five_dist = dist.slice(0,5)
    // console.log(dist)
     console.log('short dist ', five_dist);
