@@ -76,7 +76,7 @@ d3.csv('my_runs_20220516.csv', d3.autoType).then( data => {
         .scale(yScale)
         .ticks(5)
 
-})
+
 
 let circ = svg
     .append('g')
@@ -92,10 +92,10 @@ circ
     .attr('cy', data.map(d => d.dist_in_mi))
     .attr('r', 3)
 
+})
 
 
-
-var svg = d3.select('#Viz_area')
+// var svg = d3.select('#Viz_area')
 
 /*var d = data['distance'].slice(0,5);
 var dt = data['']
