@@ -24,12 +24,10 @@ d3.csv('my_runs_20220516.csv', d3.autoType).then( data => {
     //console.log(data)
     var dist = data.map(d => d.dist_in_mi)
     var five_dist = dist.slice(0,5)
-   // console.log(dist)
     console.log('short dist ', five_dist);
     var dt = data.map(d => d.start_date)
     var five_dt = dt.slice(0,5)
     console.log('short dt ', five_dt);
-   // console.log(dt)
 
    const short_data = data.slice[0,5];
    console.log(short_data);
