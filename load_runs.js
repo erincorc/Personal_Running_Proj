@@ -31,7 +31,10 @@ d3.csv('my_runs_20220516.csv', d3.autoType).then( data => {
     console.log('short dt ', five_dt);
    // console.log(dt)
 
-   let short_data = [[five_dt], [five_dist]]
+   let short_data = []
+   for (i=0; i < 5; i++) {
+        short_data.append([five_dt[i], five_dist[i]])
+   }
    console.log('short_data ', short_data)
 
     const svg = d3
