@@ -33,7 +33,7 @@ d3.csv('my_runs_20220516.csv', d3.autoType).then( data => {
 
    const short_data = []
    for (i=0; i < 5; i++) {
-        var newpair = [five_dt[i], five_dist[i]];
+        var newpair = {dt: five_dt[i], dist: five_dist[i]};
         console.log('newpair ', newpair);
         short_data.push(newpair);
    }
@@ -68,8 +68,14 @@ d3.csv('my_runs_20220516.csv', d3.autoType).then( data => {
 
 let circ = svg
     .selectAll('.chart')
+    .remove()
+    .exit()
+    .data(short_data);
+
+circ
+    .enter()
     .append('circle')
-    .data(data)
+    .attr('cx', short_data)
 
 
 
