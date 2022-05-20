@@ -21,15 +21,24 @@ fetch("my_runs_20220511.json")
 
 d3.csv('my_runs_20220516.csv', d3.autoType).then( data => {
 
-    console.log(data)
-    console.log(data.dist_in_mi, data.start_date)
+  //  console.log(data)
+   // console.log(data.dist_in_mi, data.start_date)
 
     var dist = data.map(d => d.dist_in_mi)
     var five_dist = dist.slice(0,5)
-    console.log('short dist ', five_dist);
+  //  console.log('short dist ', five_dist);
     var dt = data.map(d => d.start_date)
     var five_dt = dt.slice(0,5)
-    console.log('short dt ', five_dt);
+  //  console.log('short dt ', five_dt);
+
+    var distanddate = data.map(function(d) {
+        return {
+            dist: d.dist_in_mi,
+            dt: d.start_date
+        }
+    });
+
+    console.log('distanddate', distanddate);
 
   /* const dt_dist_lst = [];
    const short_data = data.map(d => dt_dist_lst.push([d.start_date, d.dist_in_mi])).slice[0,10];
