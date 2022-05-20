@@ -30,7 +30,7 @@ d3.csv('my_runs_20220516.csv', d3.autoType).then( data => {
     console.log('short dt ', five_dt);
 
    const short_data = data.slice[0,5];
-   console.log(short_data);
+   console.log('sliced ', short_data);
    /*const short_data = []
    for (i=0; i < 5; i++) {
         var newpair = {dt: five_dt[i], dist: five_dist[i]};
