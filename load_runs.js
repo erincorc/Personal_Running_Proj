@@ -31,22 +31,27 @@ d3.csv('my_runs_20220516.csv', d3.autoType).then( data => {
     console.log('short dt ', five_dt);
    // console.log(dt)
 
-    const svg = d3.select('.chart').append('svg')
+   let short_data = [[five_dt], [five_dist]]
+   console.log('short_data ', short_data)
+
+    const svg = d3
+        .select('.chart')
+        .append('svg')
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
     // CREATE SCALES
-    const xScale = d3.scaleTime()
+    let xScale = d3.scaleTime()
         .domain(d3.extent(five_dt)).nice()
         .range([0, width])
 
-    const yScale = d3.scaleLinear()
+    let yScale = d3.scaleLinear()
         .domain(d3.extent(five_dist)).nice()
         .range([height, 0])
 
-    const xAxis = d3.axisBottom()
+    let xAxis = d3.axisBottom()
         .scale(xScale)
         .ticks(5)
 
@@ -55,6 +60,13 @@ d3.csv('my_runs_20220516.csv', d3.autoType).then( data => {
         .ticks(5)
 
 })
+
+let circ = svg
+    .selectAll('.chart')
+    .append('circle')
+    .data(data)
+
+
 
 
 var svg = d3.select('#Viz_area')
