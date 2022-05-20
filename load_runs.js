@@ -22,20 +22,20 @@ fetch("my_runs_20220511.json")
 d3.csv('my_runs_20220516.csv', d3.autoType).then( data => {
 
     //console.log(data)
-    let dist = data.map(d => d.dist_in_mi)
-    let five_dist = dist.slice(0,5)
+    var dist = data.map(d => d.dist_in_mi)
+    var five_dist = dist.slice(0,5)
    // console.log(dist)
     console.log('short dist ', five_dist);
-    let dt = data.map(d => d.start_date)
-    let five_dt = dt.slice(0,5)
+    var dt = data.map(d => d.start_date)
+    var five_dt = dt.slice(0,5)
     console.log('short dt ', five_dt);
    // console.log(dt)
 
-   let short_data = []
+   var short_data = []
    for (i=0; i < 5; i++) {
-        let newpair = [five_dt[i], five_dist[i]];
+        var newpair = [five_dt[i], five_dist[i]];
         console.log('newpair ', newpair)
-        short_data.append(newpair)
+        short_data.push(newpair)
    }
    console.log('short_data ', short_data)
 
