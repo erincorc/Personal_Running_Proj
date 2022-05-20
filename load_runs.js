@@ -52,12 +52,9 @@ d3.csv('my_runs_20220516.csv', d3.autoType).then( data => {
    console.log('short_data ', short_data); */
 
     const svg = d3
-        .select('.chart')
-        .append('svg')
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        .select(".chart")
+        .append("svg");
+      /*  .*/
 
     // CREATE SCALES
     let xScale = d3.scaleTime()
@@ -78,14 +75,19 @@ d3.csv('my_runs_20220516.csv', d3.autoType).then( data => {
 
 
 
-let circ = svg
-    .append('g')
+var circ = svg
+    .append("g")
     .select('.chart')
-    .remove()
-    .exit()
-    .data(short_data);
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+      //  .append("g")
+     .attr("transform", "translate(" + margin.left + "," + margin.top + ")") ;
+ //   .remove()
+  //  .exit()
+   // .data(short_data);
 
-circ
+var gr = circ
+    .data(data)
     .enter()
     .append('circle')
     .attr('cx', data.map(d => d.start_date))
