@@ -29,7 +29,7 @@ d3.csv('my_runs_20220516.csv', d3.autoType).then( data => {
     var five_dt = dt.slice(0,5)
     console.log('short dt ', five_dt);
 
-   const short_data = d.slice[0,5];
+   const short_data = data.map(d => [d.start_date, d.dist_in_mi]).slice[0,10];
    console.log('sliced ', short_data);
    /*const short_data = []
    for (i=0; i < 5; i++) {
