@@ -31,13 +31,15 @@ d3.csv('my_runs_20220516.csv', d3.autoType).then( data => {
     console.log('short dt ', five_dt);
    // console.log(dt)
 
-   const short_data = []
+   const short_data = data.slice[0,5];
+   console.log(short_data);
+   /*const short_data = []
    for (i=0; i < 5; i++) {
         var newpair = {dt: five_dt[i], dist: five_dist[i]};
         console.log('newpair ', newpair);
         short_data.push(newpair);
    }
-   console.log('short_data ', short_data);
+   console.log('short_data ', short_data); */
 
     const svg = d3
         .select('.chart')
