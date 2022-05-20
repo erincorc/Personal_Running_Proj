@@ -31,7 +31,7 @@ d3.csv('my_runs_20220516.csv', d3.autoType).then( data => {
     console.log('short dt ', five_dt);
    // console.log(dt)
 
-   var short_data = []
+   const short_data = []
    for (i=0; i < 5; i++) {
         var newpair = [five_dt[i], five_dist[i]];
         console.log('newpair ', newpair);
