@@ -79,7 +79,8 @@ d3.csv('my_runs_20220516.csv', d3.autoType).then( data => {
 })
 
 let circ = svg
-    .selectAll('.chart')
+    .append('g')
+    .select('.chart')
     .remove()
     .exit()
     .data(short_data);
@@ -87,7 +88,9 @@ let circ = svg
 circ
     .enter()
     .append('circle')
-    .attr('cx', short_data)
+    .attr('cx', data.map(d => d.start_date))
+    .attr('cy', data.map(d => d.dist_in_mi))
+    .attr('r', 3)
 
 
 
